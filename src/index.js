@@ -5,6 +5,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import connectDB from './database/database.js';
 import expensesRouter from './routes/expenses.routes.js';
+import incomesRouter from './routes/incomes.routes.js';
 
 dotenv.config();
 const app = express();
@@ -18,10 +19,7 @@ app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
 
 // Routers
 app.use('/expenses', expensesRouter);
-
-app.get('/', (req, res) => {
-  res.send('<h1>Welcome to the Expense Tracker API</h1>');
-});
+app.use('/incomes', incomesRouter);
 
 app.listen(PORT, () => {
   console.log(`Server on port ${PORT}`);
