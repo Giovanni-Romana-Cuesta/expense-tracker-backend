@@ -1,5 +1,3 @@
-/* eslint-disable no-param-reassign */
-/* eslint-disable no-underscore-dangle */
 import { Schema, model } from 'mongoose';
 
 const expenseSchema = new Schema({

@@ -1,4 +1,3 @@
-/* eslint-disable import/extensions */
 import Incomes from '../models/incomes.js';
 
 export const getAllIncomes = (req, res) => {

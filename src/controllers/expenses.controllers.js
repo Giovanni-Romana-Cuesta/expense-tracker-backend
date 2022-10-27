@@ -1,4 +1,3 @@
-/* eslint-disable import/extensions */
 import Expenses from '../models/expense.js';
 
 export const getAllExpenses = (req, res) => {
