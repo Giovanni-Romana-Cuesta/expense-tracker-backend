@@ -1,12 +1,22 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-underscore-dangle */
 import { Schema, model } from 'mongoose';
 
 const expenseSchema = new Schema({
   title: { type: String, required: true },
   description: { type: String, required: false },
   value: { type: Number, required: true },
-  date: { type: Date, required: false, default: Date.now() },
+  date: { type: Number, required: false, default: Date.now() },
 });
 
-const expenseModel = model('Expense', expenseSchema);
+expenseSchema.set('toJSON', {
+  transform: (document, returnedObject) => {
+    returnedObject.id = returnedObject._id;
+    delete returnedObject._id;
+    delete returnedObject.__v;
+  },
+});
 
-export default expenseModel;
+const Expenses = model('Expense', expenseSchema);
+
+export default Expenses;
