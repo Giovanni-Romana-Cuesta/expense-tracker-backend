@@ -4,7 +4,7 @@ const expenseSchema = new Schema({
   title: { type: String, required: true },
   description: { type: String, required: false },
   value: { type: Number, required: true },
-  date: { type: Number, required: false, default: Date.now() },
+  creationDate: { type: Date, default: new Date().getTime() },
 });
 
 expenseSchema.set('toJSON', {
