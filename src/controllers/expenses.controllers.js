@@ -27,8 +27,8 @@ export const getOneExpense = (req, res) => {
 };
 
 export const createExpense = (req, res) => {
-  const { title, description, value } = req.body;
-  const tempExpense = { title, description, value };
+  const { title, description, amount } = req.body;
+  const tempExpense = { title, description, amount };
   Expenses.create(tempExpense)
     .then((newExpense) => {
       res.status(200).send(newExpense.toJSON());
@@ -56,9 +56,9 @@ export const deleteExpense = (req, res) => {
 
 export const updateExpense = (req, res) => {
   const expenseId = req.params.id;
-  const { title, description, value } = req.body;
+  const { title, description, amount } = req.body;
 
-  const data = { title, description, value };
+  const data = { title, description, amount };
 
   if (expenseId) {
     Expenses.findByIdAndUpdate({ _id: expenseId }, data, { new: true })
