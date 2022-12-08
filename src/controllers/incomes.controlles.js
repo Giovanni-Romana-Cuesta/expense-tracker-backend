@@ -26,7 +26,7 @@ export const getOneIncome = (req, res) => {
   }
 };
 
-export const createIncome = (res, req) => {
+export const createIncome = (req, res) => {
   const { title, amount, creationDate } = req.body;
   const tempExpense = { title, amount, creationDate };
   Incomes.create(tempExpense)
